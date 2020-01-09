@@ -12,7 +12,7 @@ setup(
     url='https://github.com/rpkilby/jsonfield2/',
     description='A reusable Django field that allows you to store validated JSON in your model.',
     long_description=open("README.rst").read(),
-    install_requires=['Django >= 2.2'],
+    install_requires=['Django >= 1.11'],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',

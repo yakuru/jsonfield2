@@ -81,3 +81,13 @@ class TestFieldAPIMethods(TestCase):
 
         self.assertEqual(kwargs['dump_kwargs'], {'separators': (',', ':')})
         self.assertEqual(kwargs['load_kwargs'], {'object_pairs_hook': dict})
+
+    def test_from_db_value(self):
+        json_field_instance = JSONField(null=True)
+        value = '{"a": 1}'
+        # Ensure that form_db_value can be called with 5 arguments
+        # to be django 1.11 compatible
+        # https://docs.djangoproject.com/en/2.0/releases/2.0/
+        from_db_value = json_field_instance.from_db_value(
+            value, None, None, None)
+        self.assertEqual({'a': 1}, from_db_value)
